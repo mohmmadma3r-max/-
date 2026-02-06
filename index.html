@@ -17,14 +17,14 @@
             overflow-x: hidden;
         }
 
-        /* الفوانيس - روابط مباشرة خرافية */
+        /* الفوانيس - تم تكبير الحجم وإلغاء التوهج */
         .lantern {
             position: fixed;
             top: -10px;
-            width: 100px;
+            width: 150px; /* تم تكبير الحجم من 100 لـ 150 */
             z-index: 1000;
             animation: swing 4.5s ease-in-out infinite;
-            filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.5));
+            /* تم حذف خاصية filter: drop-shadow المسؤولة عن التوهج */
         }
         .lantern-left { left: 15px; transform-origin: top center; }
         .lantern-right { right: 15px; transform-origin: top center; }
@@ -83,10 +83,12 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: #000000;">
 
-    <img src="https://www.pngall.com/wp-content/uploads/13/Ramadan-Lantern-PNG-Free-Image.png" class="lantern lantern-left" alt="فانوس">
-    <img src="https://www.pngall.com/wp-content/uploads/13/Ramadan-Lantern-PNG-Free-Image.png" class="lantern lantern-right" alt="فانوس">
+
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYkWZXKTwybxuLRcT4assFpsQfAMusGVpzUhW3dNvU04OiJiL5VhyphenhyphenLKjN-w4RLL5BXYnA27Tr4rL4QfzyNB5MMYLWLgc9G3A5-90h_W7FfyrV738hNpJBI67LKNxHYDt_VK84OEnf0uAc/s1600/ART-210+%25280%253B00%253B55%253B03%2529.jpg" class="lantern lantern-left" alt="فانوس">
+    
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYkWZXKTwybxuLRcT4assFpsQfAMusGVpzUhW3dNvU04OiJiL5VhyphenhyphenLKjN-w4RLL5BXYnA27Tr4rL4QfzyNB5MMYLWLgc9G3A5-90h_W7FfyrV738hNpJBI67LKNxHYDt_VK84OEnf0uAc/s1600/ART-210+%25280%253B00%253B55%253B03%2529.jpg" class="lantern lantern-right" alt="فانوس">
 
     <header>
         <h1>رَمَضَان</h1>
@@ -110,4 +112,3 @@
 
 </body>
 </html>
-

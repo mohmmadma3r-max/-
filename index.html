@@ -3,278 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة رمضان 2026 - الأردن</title>
-    
+    <title>رمضان 2026 - آفاق التعليم الذكي</title>
     <style>
-        /* إعدادات الخلفية والسواد المطلق (فانتا بلاك) */
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        
         body {
-            background-color: #000000;
+            background-color: #0b0b0b;
             color: #ffcc00;
-            font-family: 'Amiri', serif, Tahoma;
+            font-family: 'Amiri', serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
-            min-height: 100vh;
         }
 
-        /* الفوانيس الكبيرة المتأرجحة */
+        .date-header {
+            background: rgba(255, 204, 0, 0.1);
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+            border-bottom: 2px solid #ffcc00;
+            font-size: 1.2rem;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            backdrop-filter: blur(8px);
+        }
+
         .lantern {
             position: fixed;
-            top: -10px;
-            width: 150px; 
+            top: 55px;
+            width: 120px;
             z-index: 1000;
-            animation: swing 4.5s ease-in-out infinite;
-            pointer-events: none;
+            animation: swing 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.5));
         }
-        .lantern-left { left: 15px; transform-origin: top center; }
-        .lantern-right { right: 15px; transform-origin: top center; }
+        .lantern-left { left: -10px; transform-origin: top center; }
+        .lantern-right { right: -10px; transform-origin: top center; }
 
         @keyframes swing {
-            0%, 100__ { transform: rotate(-6deg); }
-            50% { transform: rotate(6deg); }
+            0%, 100% { transform: rotate(-4deg); }
+            50% { transform: rotate(4deg); }
         }
 
-        /* العنوان الرئيسي */
         header h1 {
-            font-size: clamp(3rem, 10vw, 5.5rem);
-            margin-top: 80px;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            margin-top: 60px;
             color: #fff;
             text-shadow: 0 0 25px #ffcc00;
-            font-weight: bold;
         }
 
-        /* حاوية عداد الصلاة الرقمي */
-        #prayer-container {
-            text-align: center;
+        .prayer-container {
+            width: 90%;
+            max-width: 420px;
+            background: #1a1a1a;
             border: 2px solid #ffcc00;
-            padding: 30px 60px;
-            border-radius: 40px;
-            background: rgba(25, 25, 25, 0.9);
+            border-radius: 25px;
+            padding: 10px;
             margin: 20px 0;
-            min-width: 320px;
-            box-shadow: 0 0 30px rgba(255, 204, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.15);
         }
 
-        #next-prayer-name {
-            font-size: 1.6rem;
-            color: #ffffff;
-            margin-bottom: 10px;
-            display: block;
+        #iframe3 {
+            width: 100%;
+            height: 363px;
+            border: none;
+            border-radius: 15px;
+            filter: invert(90%) hue-rotate(180deg) brightness(1.1);
         }
 
-        #countdown { 
-            font-size: 3.5rem; 
-            font-weight: bold; 
-            font-family: 'Courier New', Courier, monospace;
-            letter-spacing: 2px;
-        }
-
-        /* مربع الأدعية الكبير */
-        #dua-box {
-            width: 85%;
-            max-width: 700px;
-            min-height: 180px;
-            background: #0a0a0a;
-            border: 1px solid rgba(255, 204, 0, 0.4);
-            border-radius: 30px;
-            margin: 30px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 35px;
-            text-align: center;
-            transition: opacity 0.8s ease-in-out;
-            box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.05);
-        }
-
-        #dua-text {
-            font-size: 1.9rem;
-            color: #ffffff;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* الشبكة السفلية للمربعات */
         .bottom-section {
             display: flex;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 20px;
+            margin: 20px;
             flex-wrap: wrap;
             justify-content: center;
-            padding-bottom: 80px;
-            width: 95%;
+            margin-bottom: 60px;
         }
 
         .box {
-            width: 300px;
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 25px;
+            width: 290px;
+            background: #1a1a1a;
+            border: 1px solid #ffcc00;
+            border-radius: 20px;
             overflow: hidden;
             text-align: center;
-            transition: all 0.4s ease;
+            cursor: pointer;
+            transition: 0.4s;
+            text-decoration: none;
         }
+        .box:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(255,204,0,0.4); }
+        .box img { width: 100%; height: 220px; object-fit: cover; }
+        .box p { padding: 15px; font-size: 1.4rem; color: #fff; margin: 0; font-weight: bold; }
 
-        .box:hover {
-            transform: translateY(-12px);
-            border-color: #ffcc00;
-            box-shadow: 0 10px 30px rgba(255, 204, 0, 0.2);
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
         }
-
-        .box img {
-            width: 100%;
-            height: 310px;
-            object-fit: cover;
-            filter: brightness(0.9);
-        }
-
-        .box p {
-            padding: 20px;
-            font-size: 1.4rem;
-            color: #fff;
-            margin: 0;
+        .modal-content {
             background: #1a1a1a;
+            width: 85%;
+            max-width: 550px;
+            max-height: 75vh;
+            border: 2px solid #ffcc00;
+            border-radius: 25px;
+            padding: 25px;
+            overflow-y: auto;
+            position: relative;
         }
-
-        a { text-decoration: none; color: inherit; }
-
-        @media (max-width: 600px) {
-            .lantern { width: 110px; }
-            #countdown { font-size: 2.8rem; }
-        }
+        .close-btn { color: #ffcc00; font-size: 2.5rem; position: absolute; top: 10px; left: 15px; cursor: pointer; }
+        .list-style { color: #fff; text-align: right; font-size: 1.2rem; }
+        .list-style li { margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; list-style: none; }
     </style>
 </head>
 <body>
 
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYkWZXKTwybxuLRcT4assFpsQfAMusGVpzUhW3dNvU04OiJiL5VhyphenhyphenLKjN-w4RLL5BXYnA27Tr4rL4QfzyNB5MMYLWLgc9G3A5-90h_W7FfyrV738hNpJBI67LKNxHYDt_VK84OEnf0uAc/s1600/ART-210+%25280%253B00%253B55%253B03%2529.jpg" class="lantern lantern-left">
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYkWZXKTwybxuLRcT4assFpsQfAMusGVpzUhW3dNvU04OiJiL5VhyphenhyphenLKjN-w4RLL5BXYnA27Tr4rL4QfzyNB5MMYLWLgc9G3A5-90h_W7FfyrV738hNpJBI67LKNxHYDt_VK84OEnf0uAc/s1600/ART-210+%25280%253B00%253B55%253B03%2529.jpg" class="lantern lantern-right">
-
-    <header><h1>رَمَضَان</h1></header>
-
-    <div id="prayer-container">
-        <span id="next-prayer-name">جاري تحميل المواقيت...</span>
-        <div id="countdown">00:00:00</div>
+    <div class="date-header">
+        🌙 الثلاثاء 29 شعبان 1447 هـ | 17 فبراير 2026 م
     </div>
 
-    <div id="dua-box"><p id="dua-text">اللهم بلغنا رمضان وأنت راضٍ عنا</p></div>
+    <img src="https://i.postimg.cc/XqMPCx5q/1771276169153.png" class="lantern lantern-left" alt="فانوس">
+    <img src="https://i.postimg.cc/XqMPCx5q/1771276169153.png" class="lantern lantern-right" alt="فانوس">
+
+    <header>
+        <h1>رَمَضَان كَرِيم</h1>
+    </header>
+
+    <div class="prayer-container">
+        <h3 style="margin: 5px 0; font-size: 1.2rem; color: #ffcc00; text-align: center;">🕒 مواقيت الصلاة - الأردن</h3>
+        <iframe id="iframe3" src="https://timesprayer.today/widget_frame.php?frame=3&id=355&sound=false"></iframe>
+    </div>
 
     <div class="bottom-section">
-        <div class="box">
-            <a href="https://www.hesnalmuslim.com" target="_blank">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmGYBc7FwD2fbQeP7P2LO15KoCLEkyz447EA&s">
-                <p>أذكار المسلم</p>
-            </a>
+        <div class="box" onclick="openModal('doaaModal')">
+            <img src="https://modo3.com/thumbs/fit630x300/4260/1631537036/أقوى_دعاء_مستجاب.jpg" alt="دعاء">
+            <p>أدعية مستجابة🤲</p>
         </div>
-        <div class="box">
-            <a href="https://equran.me" target="_blank">
-                <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1000&auto=format&fit=crop">
-                <p>القرآن الكريم</p>
-            </a>
+
+        <div class="box" onclick="openModal('azkarModal')">
+            <img src="https://pbs.twimg.com/media/GwoZdivXoAAB2wN.jpg" alt="أذكار">
+            <p>أذكار رمضانية🌙</p>
         </div>
-        <div class="box">
-            <a href="https://www.awqaf.gov.jo/ar/Pages/PrayerTime" target="_blank">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMds66NQWR_ocpNIOtb--q2NmgofZVJBd0A&s">
-                <p>مواقيت الأوقاف 🕌</p>
-            </a>
+
+        <a href="https://quran.ksu.edu.sa/m.php#aya=1_1&t=1" target="_blank" class="box">
+            <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1000&auto=format&fit=crop" alt="القرآن الكريم">
+            <p>🥹القرآن الكريم</p>
+        </a>
+    </div>
+
+    <div id="doaaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('doaaModal')">&times;</span>
+            <h2 style="color: #ffcc00; text-align: center; margin-bottom: 20px;">دعاء مستجاب</h2>
+            <div class="list-style" id="doaa-container"></div>
+        </div>
+    </div>
+
+    <div id="azkarModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('azkarModal')">&times;</span>
+            <h2 style="color: #ffcc00; text-align: center; margin-bottom: 20px;">أذكار رمضانية</h2>
+            <div class="list-style" id="azkar-container"></div>
         </div>
     </div>
 
     <script>
-    // PrayTimes Library - مدمجة
-    var PrayTimes = function(method) {
-        var methods = { MWL: { fajr: 18, isha: 17 }, ISNA: { fajr: 15, isha: 15 }, Egypt: { fajr: 19.5, isha: 17.5 }, Makkah: { fajr: 18.5, isha: '90 min' }, Karachi: { fajr: 18, isha: 18 } };
-        var params = methods[method || 'MWL'];
-        var offset = { fajr: 0, dhuhr: 0, asr: 0, maghrib: 0, isha: 0 };
-        
-        // هذه الدالة تحسب المواقيت بناءً على الشمس وموقع عمان بدقة
-        this.getTimes = function(date, coords, timezone) {
-            // ملاحظة: الأردن مثبت التوقيت الصيفي +3
-            // المواعيد المبرمجة هنا تتوافق مع التوقيت الرسمي الصيفي الدائم
-            // سيقوم الكود بتحديث المواعيد يومياً وبشكل تلقائي الشهر القادم
-            var lat = coords[0], lng = coords[1];
-            // محاكاة دقيقة لحسابات الأوقاف في عمان
-            return {
-                fajr: "06:05", dhuhr: "12:51", asr: "15:52", maghrib: "18:18", isha: "19:38"
-            };
-        };
-    };
-
-    // إعدادات عمان والتوقيت الصيفي الدائم
-    var pt = new PrayTimes('MWL');
-    var amman = [31.9454, 35.9284];
-    var tz = 3; 
-
-    function update() {
-        const now = new Date();
-        const times = pt.getTimes(now, amman, tz);
-        const list = [
-            {n: "الفجر", t: times.fajr}, {n: "الظهر", t: times.dhuhr},
-            {n: "العصر", t: times.asr}, {n: "المغرب", t: times.maghrib},
-            {n: "العشاء", t: times.isha}
+        const azkarData = [
+            "أذكار يومية في رمضان، يا رب ارزقنا طاعتك مع الأخيار.",
+            "اللهم لا تؤاخذنا بما فعلنا من معاص وأخطاء، واغفر لنا واقض حوائجنا.",
+            "ربنا إني أعوذ بك من علم لا ينفع، ومن قلب لا يخشع، ومن دعوة لا يُستجاب لها.",
+            "اللهم إنا ندعوك ونتقرب لك بالدعاء إليك في الشهر الكريم.",
+            "ربنا افتح لنا أبواب جنتك، وأدخلنا برحمتك، وتجاوز عن خطايانا.",
+            "يا مقلب القلوب والأبصار، ثبت قلوبنا على دينك.",
+            "سبحان الله وبحمده، سبحان الله العظيم.",
+            "اللهم آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار."
         ];
 
-        let next = null;
-        for (let p of list) {
-            let [h, m] = p.t.split(':').map(Number);
-            let d = new Date(); d.setHours(h, m, 0);
-            if (d > now) { next = {n: p.n, d: d}; break; }
+        const doaaData = [
+            "اللهم إني أسألك من الخير كله عاجله وآجله ما علمت منه وما لم أعلم.",
+            "اللهم إنك عفو كريم تحب العفو فاعفُ عني.",
+            "اللهم اغفر لي ولوالدي وللمؤمنين والمؤمنات يوم يقوم الحساب.",
+            "ربنا هب لنا من أزواجنا وذرياتنا قرة أعين واجعلنا للمتقين إماماً.",
+            "اللهم وفق جميع الطلاب والطلبات في امتحاناتهم وافتح عليهم فتوح العارفين.",
+            "اللهم ارزقنا رزقاً حلالاً طيباً مباركاً فيه.",
+            "اللهم ارحم موتانا وموتى المسلمين واجعل قبورهم رياضاً من رياض الجنة.",
+            "اللهم اشفِ كل مريض يئن وجعاً ولا يعلم بحاله إلا أنت.",
+            "ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار.",
+            "اللهم أعنا على صيام رمضان وقيامه إيماناً واحتساباً."
+        ];
+
+        function openModal(id) {
+            const container = id === 'azkarModal' ? document.getElementById('azkar-container') : document.getElementById('doaa-container');
+            const data = id === 'azkarModal' ? azkarData : doaaData;
+            const limit = id === 'azkarModal' ? 100 : 150;
+            const typeText = id === 'azkarModal' ? "أستغفر الله العظيم واتوب إليه" : "يا رب استجب دعاءنا واغفر لنا";
+
+            container.innerHTML = "";
+            data.forEach((text, i) => {
+                container.innerHTML += `<li>${i+1}. ${text}</li>`;
+            });
+            
+            for(let i=data.length+1; i<=limit; i++) {
+                container.innerHTML += `<li>${i}. ${typeText}.. يا الله يا كريم.</li>`;
+            }
+            document.getElementById(id).style.display = 'flex';
         }
-        if (!next) {
-            let [h, m] = list[0].t.split(':').map(Number);
-            let d = new Date(); d.setDate(d.getDate() + 1); d.setHours(h, m, 0);
-            next = {n: list[0].n, d: d};
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
         }
-
-        const diff = next.d - now;
-        const hh = Math.floor(diff / 3600000).toString().padStart(2,'0');
-        const mm = Math.floor((diff % 3600000) / 60000).toString().padStart(2,'0');
-        const ss = Math.floor((diff % 60000) / 1000).toString().padStart(2,'0');
-
-        document.getElementById('next-prayer-name').innerText = `باقي لصلاة ${next.n}:`;
-        document.getElementById('countdown').innerText = `${hh}:${mm}:${ss}`;
-    }
-
-    // تبديل الأدعية
-    const adiya = [
-        "اللهم بلغنا رمضان وأنت راضٍ عنا",
-        "يا حي يا قيوم برحمتك أستغيث أصلح لي شأني كله",
-        "اللهم إنك عفو كريم تحب العفو فاعف عنا",
-        "صلِّ على محمد وعلى آل محمد",
-        "اللهم ارزقنا صيام رمضان وقيامه إيماناً واحتساباً",
-        "اللهم أهله علينا باليمن والإيمان والسلامة والإسلام"
-    ];
-    let idx = 0;
-    setInterval(() => {
-        const box = document.getElementById('dua-box');
-        box.style.opacity = 0;
-        setTimeout(() => {
-            idx = (idx + 1) % adiya.length;
-            document.getElementById('dua-text').innerText = adiya[idx];
-            box.style.opacity = 1;
-        }, 800);
-    }, 10000);
-
-    setInterval(update, 1000);
-    update();
+       
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300&display=swap" rel="stylesheet">
+      <div class="footer">
+            هذا الموقع إهداء لشخص غالي H🥹♥️ اللهم في ميزان حسناتها 🤲🥹(جميع الحقوق محفوظة©)
+        </div>
 
-<div style="
-    font-family: 'Noto Kufi Arabic', sans-serif;
-    color: rgba(255, 204, 0, 0.5); 
-    font-size: 0.85rem;
-    text-align: center;
-    padding: 30px 10px;
-    letter-spacing: 0.5px;
-    font-weight: 300;
-    width: 100%;
-    direction: rtl;">
-  
- (إهداء لحد غالي H♥️)جميع الحقوق محفوظة © 2026
-</div>
-    
+
 </body>
 </html>
